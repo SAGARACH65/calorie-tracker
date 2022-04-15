@@ -1,0 +1,69 @@
+type FoodEntry {
+  userGameId:String
+  cardsInDeck: Int
+  hasUserWon: Boolean
+  winnerCardsDealt: Int
+  isGameCompleted: Boolean
+}
+
+type User {
+  id: ID!      
+  budgetLimit: Int
+  calorieLimit: Int     
+  email: String
+  firstName: String
+  lastName: String
+  role: String
+  username: String
+}
+
+type UserToken {
+  id: ID!
+  role: String
+  userToken: String
+}
+
+type FoodEntry {
+  id: ID!
+  price: Int
+  name: String
+  calorieCount: Int
+  createdAt: String
+  foodTakenOnDate: String
+  foodTakenOnTime: String
+}
+
+type UserFoodData {
+  id: ID!
+  price: Int
+  name: String
+  username: String
+  calorieCount: Int
+  createdAt: String
+  foodTakenOnDate: String
+  foodTakenOnTime: String
+}
+
+type DeletedEntry{
+  id: Int!
+}
+
+type UserDetails{
+  id: String
+   username: String
+}
+
+type Query {
+  user: User
+  allUsers: [UserDetails]
+  foodEntries: [FoodEntry]
+  allFoodEntries: [UserFoodData]
+}
+
+type Mutation {
+  userToken(userName: String!): UserToken
+  deleteFoodEntry(entryId: String!): DeletedEntry
+  createFoodEntry(calories: Int!, foodName: String!, foodTakeOnDate: String!, foodTakeOnTime: String, price: Int): FoodEntry
+  adminCreateFoodEntry(assignee: String!, calories: Int!, foodName: String!, foodTakeOnDate: String!, foodTakeOnTime: String, price: Int): FoodEntry
+  editFoodEntry(id: String!, calories: Int!, foodName: String!, foodTakeOnDate: String!, foodTakeOnTime: String, price: Int): FoodEntry
+}

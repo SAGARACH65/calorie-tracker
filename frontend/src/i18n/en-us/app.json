@@ -1,0 +1,16 @@
+{
+  "app.notAuthorized": "You are not authorized to view this page",
+  "app.viewReports": "View All Reports",
+  "app.login": "Log In",
+  "app.viewAdminPage": "View Admin Page",
+  "app.goToHome": "Go to my home page",
+  "app.goToUser": "Go to user page",
+  "admin.alert": "You can see all the users data here",
+  "admin.welcome": "Welcome to the admin portal: {username}",
+  "app.delete": "Delete",
+  "app.edit": "Edit",
+  "app.filter": "Filter:",
+  "app.logout": "Logout",
+  "app.addNewEntry": "+ Add new entry",
+  "app.noData": "You dont have any data. Please add data with the add button above"
+}

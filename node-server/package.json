@@ -1,0 +1,50 @@
+{
+  "private": true,
+  "name": "calorie-tracker-node-server",
+  "version": "0.1.0",
+  "proxy": "http://localhost:5000",
+  "license": "UNLICENSED",
+  "scripts": {
+    "gql-codegen": "graphql-codegen --config codegen.yml",
+    "start": "nodemon src/index.ts",
+    "start:build": "node build/index.js",
+    "build": "run-s clean compile copy",
+    "clean": "rm -rf build",
+    "compile": "tsc --outDir build",
+    "copy": "cp src/schema.graphql build/schema.graphql",
+    "test": "run-s eslint:check prettier:check jest",
+    "jest": "jest",
+    "migrate": "knex --knexfile knexfile.ts migrate:latest",
+    "migrate:make": "knex --knexfile knexfile.ts -x ts migrate:make",
+    "migrate:rollback": "knex --knexfile knexfile.ts migrate:rollback",
+    "seed": "knex --knexfile knexfile.ts seed:run",
+    "seed:make": "knex --knexfile knexfile.ts -x ts seed:make",
+    "prettify": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,md,css,scss}\"",
+    "eslint:check": "eslint src/ --ext .js,.jsx,.ts,.tsx",
+    "prettier:write": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,css,scss}\"",
+    "prettier:check": "prettier --list-different \"**/*.{js,jsx,ts,tsx,json,md,css,scss}\""
+  },
+  "dependencies": {
+    "apollo-server-express": "^2.22.2",
+    "camelize-ts": "^1.0.8",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "graphql": "^15.5.0",
+    "graphql-import": "^1.0.2",
+    "http-status-codes": "^2.1.4",
+    "knex": "0.19.5",
+    "pg": "^8.7.1",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@types/dotenv": "^8.2.0",
+    "@types/knex": "^0.16.1",
+    "@types/uuid": "^8.3.3",
+    "graphql-tools": "^7.0.4",
+    "jest": "^26.6.3",
+    "nodemon": "^1.19.1",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.2.3"
+  }
+}
